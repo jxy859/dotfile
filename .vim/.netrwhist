@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/xyjiang/data/common/src/go/src/audience_data_right/hyperledger/docker-compose-files/hyperledger/1.0/e2e_cli'
+let g:netrw_dirhist_2='/Users/xyjiang/data/common/src/go/src/audience_data_right/ui/locale'
+let g:netrw_dirhist_3='/Users/xyjiang/data/common/src/go/src/audience_data_right/ui'
