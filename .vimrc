@@ -1,5 +1,7 @@
 """"""""""""""""""""
+" VIM SOURCE FILE  "
 " By Xinyang Jiang "
+"                  "
 """"""""""""""""""""
 syntax on
 set number
@@ -54,17 +56,22 @@ nmap +p :r !pbpaste<CR><CR>
 
 """"Golang
 call plug#begin()
-Plug 'fatih/vim-go-1.13', { 'do': ':GoInstallBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 call plug#end()
+
+"""""" with vim-go Plug
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
-
-"""""" with vim-go Plug
 autocmd FileType go nmap <buffer> <leader>b <Plug>(go-build)
 autocmd FileType go nmap <buffer> <leader>r <Plug>(go-run)
 autocmd FileType go nmap <buffer> <leader>t <Plug>(go-test)
 autocmd FileType go nmap <buffer> <leader>c <Plug>(go-test)
+
+"""" JavaScript with vim-javascript
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
 
 """" automatically save content when you change the buffer 
 set autowrite
@@ -81,6 +88,8 @@ map <F5> :NERDTreeToggle<CR>
 """"set linenumber 
 map <F3> :set nonu<CR>
 map <F2> :set nu<CR>
+
+""""set 
 
 """"set NERDcommenter
 " Add spaces after comment delimiters by default
