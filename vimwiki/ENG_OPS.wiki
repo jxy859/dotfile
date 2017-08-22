@@ -1,0 +1,29 @@
+SDLC
+
+Agile
+
+scrum: a kind of Agile
+
+Roles:
+* product owner
+* team 
+* scrum master 
+
+Artificial:
+* product backlog
+* sprint backlog
+* burndown Chart
+
+release 
+
+Ceremonies
+* Planning
+* Stand-up
+* 
+
+PI program increment
+
+JIRA
+ESC: 
+OPS:
+CIT:
