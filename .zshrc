@@ -7,7 +7,10 @@ export ZSH=/Users/xyjiang/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+
 ZSH_THEME="robbyrussell"
+#ZSH_THEME="agnoster"
+#ZSH_THEME="pygmalion"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -74,7 +77,7 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
-export GOPATH=/Users/xyjiang/work/common/src/go
+export GOPATH=/Users/xyjiang/work/go
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -85,11 +88,22 @@ export GOPATH=/Users/xyjiang/work/common/src/go
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export adr=/Users/xyjiang/work/common/src/go/src/audience_data_right
+alias adr="$adr"
+export bchip=/Users/xyjiang/work/go/src/bchip
+alias bchip="$bchip"
 export gotutor=/Users/xyjiang/go/src/github.com/fatih/vim-go-tutorial
 export hyper=/Users/xyjiang/work/common/src/go/src/audience_data_right/docker-compose-files/hyperledger/1.0
+alias hyper="$hyper"
+
+## add GOPATH to PATH wich a precheck
+if [[ ! $PATH =~ "$GOPATH/bin" ]]; then
+	export PATH=$PATH:$GOPATH/bin
+fi
+# echo $PATH | grep $GOPATH || PATH=$PATH:$GOPATH/bin
 
 alias ex="exit"
-##docker 
+
+## docker 
 alias dps="docker ps"
 alias dpsn="docker ps --format \"{{.Names}}\""
 
@@ -101,8 +115,23 @@ git config --global alias.ci commit
 git config --global alias.br branch
 git config --global alias.ad add
 git config --global alias.st status
+git config --global alias.pl "pull origin master"
+git config --global alias.ps "push origin master"
 git config --global alias.last 'log -1'
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+#. /Users/xyjiang/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+#. /usr/local/bin/powerline
 
+export LANG="en_US.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 
+. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
+# use 'foo' instead 'cd foo' to change dir 
+setopt AUTO_CD
