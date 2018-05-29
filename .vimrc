@@ -38,7 +38,9 @@ set foldmethod=indent
 set foldcolumn=0
 setlocal foldlevel=3
 nnoremap , @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-noremap <C-d> :sh<CR>
+
+map <C-c> :sh<CR>
+"map <C-s> :w <CR> :echo "Saved" <CR>
 
 set tags=./tags,./TAGS,tags;~,TAGS;~
 
@@ -76,6 +78,7 @@ autocmd FileType go nmap <buffer> <leader>r <Plug>(go-run)
 autocmd FileType go nmap <buffer> <leader>t <Plug>(go-test)
 autocmd FileType go nmap <buffer> <leader>f :GoFmt<CR> 
 autocmd FileType go nmap <buffer> <leader>a :GoAlternate<CR> 
+autocmd FileType go nmap <buffer> <leader>i :GoImports<CR> 
 "<Plug>(go-format)
 
 "autocmd FileType go nmap <buffer> <leader>c <Plug>(go-test)
@@ -112,7 +115,7 @@ filetype plugin on
 """"set NERDTree
 map <F5> :NERDTreeMirror<CR>
 map <F5> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 """"set linenumber 
 map <F3> :set nonu<CR>
@@ -150,8 +153,8 @@ let g:airline_theme='deus'
 set laststatus=2
 let g:airline_solarized_bg='dark'
 let g:airline_powerline_fonts = 1 
-nnoremap <leader>n :bn<CR>
-nnoremap <leader>p :bp<CR>
+"nnoremap <leader>n :bn<CR>
+"nnoremap <leader>p :bp<CR>
 
 "let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -161,6 +164,26 @@ if !exists('g:airline_symbols')
   endif
 "let g:airline_symbols.space = "\ua0"
 "
+"
+
+"""" easymotion
+"Bundle 'Lokaltog/vim-easymotion'
+let g:EasyMotion_smartcase = 1
+"let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+map f <Plug>(easymotion-prefix)
+map ff <Plug>(easymotion-s)
+map fs <Plug>(easymotion-f)
+
+" Move to word
+map  fw <Plug>(easymotion-bd-w)
+nmap fw <Plug>(easymotion-overwin-w)
+
+map fh <Plug>(easymotion-linebackward)
+map fj <Plug>(easymotion-j)
+map fk <Plug>(easymotion-k)
+map fl <Plug>(easymotion-lineforward)
+" 重复上一次操作, 类似repeat插件, 很强大
+map f. <Plug>(easymotion-repeat)
 
 
 """" tagbar
@@ -197,7 +220,7 @@ func SetComment_sh()
 	call append(line(".")+0, "#================================================================") 
 	call append(line(".")+1, "#   Copyright (C) ".strftime("%Y")." FreeWheel")
 	call append(line(".")+2, "#   Filename: ".expand("%:t")) 
-	call append(line(".")+3, "#   Author: xyjiang <Email:jxy859@gmail.com | Work-Email xyjiang@freewheel.tv>")
+	call append(line(".")+3, "#   Author: Xinyang Jiang <Email:jxy859@gmail.com | Work-Email xyjiang@freewheel.tv>")
 	call append(line(".")+4, "#   Create: ".strftime("%Y-%m-%d")) 
 	call append(line(".")+5, "#   Update: ".strftime("%Y-%m-%d %H:%M:%S"))
 	call append(line(".")+6, "#   Desc: ") 
@@ -261,3 +284,17 @@ func DataUpdate()
 endfunc
 autocmd FileWritePre,BufWritePre *.[ch],*.hpp,*.cpp,Makefile,*.mk,*.sh,*.go,*.js ks|call DataUpdate() |'s
 "SET Last Modified Time END
+
+"""groovy
+
+if did_filetype() 
+    finish 
+endif 
+if getline(1) =~ '^#!.*[/\\]groovy\>' 
+    setf groovy 
+endif 
+
+
+"""avro
+au BufRead,BufNewFile *.avdl setlocal filetype=avro-idl
+au BufRead,BufNewFile *.avsc setlocal filetype=avro-idl
