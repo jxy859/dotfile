@@ -8,9 +8,10 @@ export ZSH=/Users/xyjiang/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
 #ZSH_THEME="agnoster"
 #ZSH_THEME="pygmalion"
+ZSH_THEME="ys"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -77,7 +78,8 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
-export GOPATH=/Users/xyjiang/work/go
+export GOPATH=/Users/xyjiang/work/go:/Users/xyjiang/blockgraph/bg-signal-go:/Users/xyjiang/blockgraph/bg-query-go:/Users/xyjiang/blockgraph/bg-signal-simulator
+export GOPATHBIN=/Users/xyjiang/work/go/bin:/Users/xyjiang/blockgraph/bg-signal-go/bin:/Users/xyjiang/blockgraph/bg-query-go/bin:/Users/xyjiang/blockgraph/bg-signal-simulator/bin
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -87,21 +89,42 @@ export GOPATH=/Users/xyjiang/work/go
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+####################these config only on this mac #####################
+alias gopa="$GOPATH"
 export adr=/Users/xyjiang/work/common/src/go/src/audience_data_right
 alias adr="$adr"
+
 export bchip=/Users/xyjiang/work/go/src/bchip
 alias bchip="$bchip"
+
+export bchip=/Users/xyjiang/work/go/src/bchip
+alias bchip="$bchip"
+
+export k8s=/Users/xyjiang/work/go/src/k8s
+alias k8s="$k8s"
+
 export gotutor=/Users/xyjiang/go/src/github.com/fatih/vim-go-tutorial
+
 export hyper=/Users/xyjiang/work/common/src/go/src/audience_data_right/docker-compose-files/hyperledger/1.0
 alias hyper="$hyper"
 
+export blockbench=/Users/xyjiang/work/blockbench
+alias blockbench="$blockbench"
+########################################################################
+
 ## add GOPATH to PATH wich a precheck
-if [[ ! $PATH =~ "$GOPATH/bin" ]]; then
-	export PATH=$PATH:$GOPATH/bin
+if [[ ! $PATH =~ "$GOPATHBIN" ]]; then
+	export PATH=$PATH:$GOPATHBIN
+fi
+
+if [[ ! $PATH =~ "/Users/xyjiang/Library/Python/2.7/bin" ]]; then
+	export PATH=$PATH:/Users/xyjiang/Library/Python/2.7/bin
 fi
 # echo $PATH | grep $GOPATH || PATH=$PATH:$GOPATH/bin
 
 alias ex="exit"
+alias kb="kubectl"
+alias kbg="kubectl get"
 
 ## docker 
 alias dps="docker ps"
@@ -135,3 +158,18 @@ export LC_ALL="en_US.UTF-8"
 
 # use 'foo' instead 'cd foo' to change dir 
 setopt AUTO_CD
+
+##########gcloud#############
+alias gcloud="~/google-cloud-sdk/bin/gcloud"
+
+alias stgdev3="ssh stgdev03.stg.fwmrm.net"
+alias stgdev1="ssh stgdev01.stg.fwmrm.net"
+
+alias bgdev="ssh -i ~/.ssh/bg-dev.pem centos@34.201.76.94"
+
+export PATH=$PATH:$HOME/bin
+
+[[ ! $PATH =~ $HOME/.local/bin ]] && export PATH=$PATH:$HOME/.local/bin
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages/
