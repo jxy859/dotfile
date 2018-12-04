@@ -46,7 +46,7 @@ ZSH_THEME="ys"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -123,8 +123,6 @@ fi
 # echo $PATH | grep $GOPATH || PATH=$PATH:$GOPATH/bin
 
 alias ex="exit"
-alias kb="kubectl"
-alias kbg="kubectl get"
 
 ## docker 
 alias dps="docker ps"
@@ -173,3 +171,22 @@ export PATH=$PATH:$HOME/bin
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages/
+
+
+
+
+# kubeconfig
+[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+source <(kubectl completion zsh)
+source <(helm completion zsh)
+
+#helm 
+alias hrm="helm delete --purge"
+alias hls="helm ls"
+
+#dir motion 
+alias up="cd .." 
+alias up2="cd ../../"
+alias sw="cd $OLDPWD"
+
+alias cicd="cd ~/cicd/common/helm/forecast/engine_simulation"
