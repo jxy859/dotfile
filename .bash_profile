@@ -1,4 +1,5 @@
 alias ls="ls -G"
+source ~/.zshrc
 export CLICOLOR=1
 export LSCOLORS=bxfxhxhxgxhxhxgxgxbxbx
 
