@@ -63,7 +63,6 @@ git clone https://github.com/diepm/vim-rest-console.git
 #git clone https://github.com/vim-latex/vim-latex
 
 
-
 ###########format things###########
 # for avsc
 git clone https://github.com/dln/avro-vim

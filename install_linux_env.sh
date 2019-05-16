@@ -4,13 +4,13 @@
 #   Filename: install_mac_env.sh
 #   Author: Xinyang Jiang <Email:jxy859@gmail.com | Work-Email xyjiang@freewheel.tv>
 #   Create: 2018-11-30
-#   Update: 2018-12-14 11:04:59
+#   Update: 2019-03-18 11:08:16
 #   Desc: 
 #================================================================
 
 workdir=$(pwd)
 
-for i in .ssh .vim .bash_profile .bashrc .zshrc .vimrc .tmux.conf vimwiki
+for i in .ssh .vim .bash_profile .bashrc .zshrc .vimrc tmux.linux vimwiki
 do
    ln -s ${workdir}/${i} ~/$i
 done
