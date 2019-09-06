@@ -70,4 +70,5 @@ git clone https://github.com/dln/avro-vim
 
 # for groovy
 git clone https://github.com/rdolgushin/groovy.vim
+git clone https://github.com/kien/rainbow_parentheses.vim.git
 
