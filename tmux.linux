@@ -1,0 +1,50 @@
+set -g prefix C-f
+unbind C-a
+
+bind r source-file ~/.tmux.conf \; display "Reloaded!"
+bind e new-window -n tmux-config vim ~/.tmux.conf
+
+set-option -g default-terminal "screen-256color"
+
+# Act like Vim
+setw -g mode-keys vi
+bind-key h select-pane -L
+bind-key j select-pane -D
+bind-key k select-pane -U
+bind-key l select-pane -R
+
+setw -g mode-mouse on
+set -g mouse-resize-pane on
+set -g mouse-select-pane on
+set -g mouse-select-window on
+
+
+#scrollback buffer size increase
+set -g history-limit 50000
+
+# Change cursor in vim to distinguish between insert and command mode
+set-option -g terminal-overrides '*88col*:colors=88,*256col*:colors=256,xterm*:XT:Ms=\E]52;%p1%s;%p2%s\007:Cc=\E]12;%p1%s\007:Cr=\E]112\007:Cs=\E]50;CursorShape=%?%p1%{3}%<%t%{0}%e%p1%{2}%-%;%d\007'
+
+# default statusbar colors
+set -g status-bg colour235 #base02
+set -g status-fg colour136 #yellow
+set -g status-attr default
+# default window title colors
+setw -g window-status-fg colour244
+setw -g window-status-bg default
+set -g base-index 1
+
+setw -g monitor-activity on
+setw -g automatic-rename off
+#setw -g window-status-current-bg blue
+#setw -g window-status-current-fg green
+
+# Highlight active window
+set-window-option -g window-status-current-bg red
+
+# use different keys to split vertical and horizonal
+bind | split-window -h
+unbind %
+bind - split-window -v
+unbind '"'
+set-window-option -g mode-mouse on

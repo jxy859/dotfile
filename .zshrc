@@ -2,16 +2,16 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/xyjiang/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-#ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 #ZSH_THEME="agnoster"
 #ZSH_THEME="pygmalion"
-ZSH_THEME="ys"
+#ZSH_THEME="superjarin"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -78,8 +78,8 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
-export GOPATH=/Users/xyjiang/work/go:/Users/xyjiang/blockgraph/bg-signal-go:/Users/xyjiang/blockgraph/bg-query-go:/Users/xyjiang/blockgraph/bg-signal-simulator
-export GOPATHBIN=/Users/xyjiang/work/go/bin:/Users/xyjiang/blockgraph/bg-signal-go/bin:/Users/xyjiang/blockgraph/bg-query-go/bin:/Users/xyjiang/blockgraph/bg-signal-simulator/bin
+export GOPATH=/Users/xjiang296/work/go:/Users/xjiang296/blockgraph/bg-signal-go:/Users/xjiang296/blockgraph/bg-query-go:/Users/xjiang296/blockgraph/bg-signal-simulator:/Users/xjiang296/blockgraph/bg-segment-server
+export GOPATHBIN=/Users/xjiang296/work/go/bin:/Users/xjiang296/blockgraph/bg-signal-go/bin:/Users/xjiang296/blockgraph/bg-query-go/bin:/Users/xjiang296/blockgraph/bg-signal-simulator/bin:/Users/xjiang296/blockgraph/bg-segment-server/bin
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -91,24 +91,24 @@ export GOPATHBIN=/Users/xyjiang/work/go/bin:/Users/xyjiang/blockgraph/bg-signal-
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 ####################these config only on this mac #####################
 alias gopa="$GOPATH"
-export adr=/Users/xyjiang/work/common/src/go/src/audience_data_right
+export adr=/Users/xjiang296/work/common/src/go/src/audience_data_right
 alias adr="$adr"
 
-export bchip=/Users/xyjiang/work/go/src/bchip
+export bchip=/Users/xjiang296/work/go/src/bchip
 alias bchip="$bchip"
 
-export bchip=/Users/xyjiang/work/go/src/bchip
+export bchip=/Users/xjiang296/work/go/src/bchip
 alias bchip="$bchip"
 
-export k8s=/Users/xyjiang/work/go/src/k8s
+export k8s=/Users/xjiang296/work/go/src/k8s
 alias k8s="$k8s"
 
-export gotutor=/Users/xyjiang/go/src/github.com/fatih/vim-go-tutorial
+export gotutor=/Users/xjiang296/go/src/github.com/fatih/vim-go-tutorial
 
-export hyper=/Users/xyjiang/work/common/src/go/src/audience_data_right/docker-compose-files/hyperledger/1.0
+export hyper=/Users/xjiang296/work/common/src/go/src/audience_data_right/docker-compose-files/hyperledger/1.0
 alias hyper="$hyper"
 
-export blockbench=/Users/xyjiang/work/blockbench
+export blockbench=/Users/xjiang296/work/blockbench
 alias blockbench="$blockbench"
 ########################################################################
 
@@ -117,8 +117,8 @@ if [[ ! $PATH =~ "$GOPATHBIN" ]]; then
 	export PATH=$PATH:$GOPATHBIN
 fi
 
-if [[ ! $PATH =~ "/Users/xyjiang/Library/Python/2.7/bin" ]]; then
-	export PATH=$PATH:/Users/xyjiang/Library/Python/2.7/bin
+if [[ ! $PATH =~ "/Users/xjiang296/Library/Python/2.7/bin" ]]; then
+	export PATH=$PATH:/Users/xjiang296/Library/Python/2.7/bin
 fi
 # echo $PATH | grep $GOPATH || PATH=$PATH:$GOPATH/bin
 
@@ -140,7 +140,7 @@ git config --global alias.pl "pull origin master"
 git config --global alias.ps "push origin master"
 git config --global alias.last 'log -1'
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-#. /Users/xyjiang/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+#. /Users/xjiang296/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
 #. /usr/local/bin/powerline
 
 export LANG="en_US.UTF-8"
@@ -152,7 +152,8 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+#. /Users/xjiang296/Library/Python/3.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+#. /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # use 'foo' instead 'cd foo' to change dir 
 setopt AUTO_CD
@@ -172,9 +173,6 @@ export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages/
 
-
-
-
 # kubeconfig
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 source <(kubectl completion zsh)
@@ -190,3 +188,4 @@ alias up2="cd ../../"
 alias sw="cd $OLDPWD"
 
 alias cicd="cd ~/cicd/common/helm/forecast/engine_simulation"
+export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"

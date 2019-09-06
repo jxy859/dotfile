@@ -147,6 +147,33 @@ let g:NERDSpaceDelims = 1
 " let g:NERDTrimTrailingWhitespace = 1
 "
 
+map <F6> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+        exec "w"
+        if &filetype == 'c'
+                exec "!g++ % -o %<"
+                exec "!time ./%<"
+        elseif &filetype == 'cpp'
+                exec "!g++ % -o %<"
+                exec "!time ./%<"
+        elseif &filetype == 'java'
+                exec "!javac %"
+                exec "!time java %<"
+        elseif &filetype == 'sh'
+                :!time bash %
+        elseif &filetype == 'python'
+                exec "!clear"
+                exec "!time python %"
+        elseif &filetype == 'html'
+                exec "!firefox % &"
+        elseif &filetype == 'go'
+                " exec "!go build %<"
+                exec "!time go run %"
+        elseif &filetype == 'mkd'
+                exec "!~/.vim/markdown.pl % > %.html &"
+                exec "!firefox %.html &"
+        endif
+endfunc
 
 """" airline
 let g:airline_theme='deus'
@@ -298,3 +325,27 @@ endif
 """avro
 au BufRead,BufNewFile *.avdl setlocal filetype=avro-idl
 au BufRead,BufNewFile *.avsc setlocal filetype=avro-idl
+
+"""rainbow parentheses
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
