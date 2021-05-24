@@ -2,7 +2,9 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+ export ZSH_DISABLE_COMPFIX=true
 export ZSH=~/.oh-my-zsh
+HOME=$(echo ~)
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -94,11 +96,8 @@ alias gopa="$GOPATH"
 export adr=/Users/xjiang296/work/common/src/go/src/audience_data_right
 alias adr="$adr"
 
-export bchip=/Users/xjiang296/work/go/src/bchip
-alias bchip="$bchip"
-
-export bchip=/Users/xjiang296/work/go/src/bchip
-alias bchip="$bchip"
+export bgraph=$HOME/blockgraph
+alias bgraph="$bgraph"
 
 export k8s=/Users/xjiang296/work/go/src/k8s
 alias k8s="$k8s"
@@ -117,10 +116,15 @@ if [[ ! $PATH =~ "$GOPATHBIN" ]]; then
 	export PATH=$PATH:$GOPATHBIN
 fi
 
-if [[ ! $PATH =~ "/Users/xjiang296/Library/Python/2.7/bin" ]]; then
-	export PATH=$PATH:/Users/xjiang296/Library/Python/2.7/bin
-fi
+
+#if [[ ! $PATH =~ "/Users/xjiang296/Library/Python/2.7/bin" ]]; then
+	#export PATH=$PATH:/Users/xjiang296/Library/Python/2.7/bin
+#fi
 # echo $PATH | grep $GOPATH || PATH=$PATH:$GOPATH/bin
+#
+if [[ ! $PATH =~ "sonar" ]]; then
+	export PATH=$PATH:/Users/xjiang296/sonar-scanner-3.1.0.1141-macosx/bin
+fi
 
 alias ex="exit"
 
@@ -164,14 +168,14 @@ alias gcloud="~/google-cloud-sdk/bin/gcloud"
 alias stgdev3="ssh stgdev03.stg.fwmrm.net"
 alias stgdev1="ssh stgdev01.stg.fwmrm.net"
 
-alias bgdev="ssh -i ~/.ssh/bg-dev.pem centos@34.201.76.94"
+#alias bgdev="ssh -i ~/.ssh/bg-dev.pem centos@34.201.76.94"
 
 export PATH=$PATH:$HOME/bin
 
 [[ ! $PATH =~ $HOME/.local/bin ]] && export PATH=$PATH:$HOME/.local/bin
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages/
+#export PYTHONPATH=/usr/local/lib/python2.7/site-packages/
 
 # kubeconfig
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
@@ -187,5 +191,22 @@ alias up="cd .."
 alias up2="cd ../../"
 alias sw="cd $OLDPWD"
 
+alias ssm="aws ssm start-session --target"
+
 alias cicd="cd ~/cicd/common/helm/forecast/engine_simulation"
 export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
+
+#postgres
+alias pcli="pgcli -h 127.0.0.1 -U postgres -d blockgraph_participant"
+export PATH="/usr/local/opt/go@1.14/bin:$PATH"
+ss(){
+	iid=$3
+	[[ "$iid" == "" ]] && iid="1"
+	Iid=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=aerospike-${2}-${1}-${iid}" --query "Reservations[*].Instances[*].InstanceId" --output=text)
+	ssm $Iid
+}
+
+#run welcome
+toilet -f smmono9 -F metal Hello! 
+toilet -F border -F metal Xinyang -f mono9
+fortune | cowsay

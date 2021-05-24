@@ -1,6 +1,0 @@
-= My notebook base =
-	* [[Task]]
-	* [[Project]]
-	* [[note]]
-	* [[a]]
-	

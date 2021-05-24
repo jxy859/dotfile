@@ -1,9 +1,0 @@
-
-* perf tuning golang
-* runtime/pprof
-1. cpu
-
-2. heap / contention : channel
-	
-3. other  
-   go teset [-memprofile file] [-cpuprofile file] [-blockprofile file]

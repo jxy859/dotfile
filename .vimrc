@@ -1,4 +1,4 @@
-""""""""""""""""""""
+
 " VIM SOURCE FILE  "
 " By Xinyang Jiang "
 "                  "
@@ -89,6 +89,8 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_autodetect_gopath = 0
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 
 "autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
 
@@ -220,21 +222,14 @@ nmap <F8> :TagbarToggle<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-autocmd BufNewFile *.[ch],*.hpp,*.cpp,Makefile,*.mk,*.sh,*.go,*.js exec ":call SetTitle()" |normal 11Go
+autocmd BufNewFile *.[ch],*.hpp,*.cpp,Makefile,*.mk,*.sh,*.go,*.js,*.java exec ":call SetTitle()" |normal 11Go
 
 func SetComment() " comment with /**/ //
 	call setline(1,"/*================================================================") 
-	" call append(line("."),   "*   Copyright (C) ".strftime("%Y")." Sangfor Ltd.")
-	" call append(line(".")+1, "*   ") 
-	" call append(line(".")+2, "*   Filename: ".expand("%:t")) 
-	" call append(line(".")+3, "*   Author: xyjiang <Email:jxy859@gmail.com>")
-	" call append(line(".")+4, "*   Create: ".strftime("%Y-%m-%d")) 
-	" call append(line(".")+5, "*   Update: ".strftime("%Y-%m-%d %H:%M:%S"))
-	" call append(line(".")+6, "*   Desc: ") 
 	call append(line("."),   "#   Copyright (C) ".strftime("%Y")." FreeWheel")
 	call append(line(".")+1, "#   ") 
 	call append(line(".")+2, "#   Filename: ".expand("%:t")) 
-	call append(line(".")+3, "#   Author: xyjiang <Email:jxy859@gmail.com | Work-Email xyjiang@freewheel.tv>")
+	call append(line(".")+3, "#   Author: xyjiang <Email:jxy859@gmail.com | Work-Email xyjiang@freewheel.com|xyjiang@blockgraph.co>")
 	call append(line(".")+4, "#   Create: ".strftime("%Y-%m-%d")) 
 	call append(line(".")+5, "#   Update: ".strftime("%Y-%m-%d %H:%M:%S"))
 	call append(line(".")+6, "#   Desc: ") 
@@ -247,7 +242,7 @@ func SetComment_sh()
 	call append(line(".")+0, "#================================================================") 
 	call append(line(".")+1, "#   Copyright (C) ".strftime("%Y")." FreeWheel")
 	call append(line(".")+2, "#   Filename: ".expand("%:t")) 
-	call append(line(".")+3, "#   Author: Xinyang Jiang <Email:jxy859@gmail.com | Work-Email xyjiang@freewheel.tv>")
+	call append(line(".")+3, "#   Author: Xinyang Jiang <Email:jxy859@gmail.com | Work-Email xyjiang@freewheel.com|xyjiang@blockgraph.co>")
 	call append(line(".")+4, "#   Create: ".strftime("%Y-%m-%d")) 
 	call append(line(".")+5, "#   Update: ".strftime("%Y-%m-%d %H:%M:%S"))
 	call append(line(".")+6, "#   Desc: ") 
@@ -263,7 +258,7 @@ func SetTitle()
 		call SetComment_sh()
 
 	elseif &filetype == 'sh' 
-		call setline(1,"#!/bin/sh") 
+		call setline(1,"#!/usr/bin/env bash") 
 		call setline(2,"")
 		call SetComment_sh()
 
@@ -337,7 +332,6 @@ let g:rbpt_colorpairs = [
     \ ['darkmagenta', 'DarkOrchid3'],
     \ ['brown',       'firebrick3'],
     \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
     \ ['darkmagenta', 'DarkOrchid3'],
     \ ['Darkblue',    'firebrick3'],
     \ ['darkgreen',   'RoyalBlue3'],
@@ -349,3 +343,9 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" Open markdown files with Chrome.
+autocmd BufEnter *.md exe 'noremap <F7> :!open -a "Google Chrome.app" %:p<CR>'
+
+
+

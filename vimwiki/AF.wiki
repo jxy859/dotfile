@@ -1,7 +1,0 @@
- for content right owner 
-
-* picth to pay
-	pre: portfolio -> inventory
-	post plcment
-* inventory 
-* 

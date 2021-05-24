@@ -1,4 +1,0 @@
-= note =
-	* [[NHT]]
-	* [[VAST]]
-	* [[GOLANG]]
