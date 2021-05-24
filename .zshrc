@@ -80,8 +80,8 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
-export GOPATH=/Users/xjiang296/work/go:/Users/xjiang296/blockgraph/bg-signal-go:/Users/xjiang296/blockgraph/bg-query-go:/Users/xjiang296/blockgraph/bg-signal-simulator:/Users/xjiang296/blockgraph/bg-segment-server
-export GOPATHBIN=/Users/xjiang296/work/go/bin:/Users/xjiang296/blockgraph/bg-signal-go/bin:/Users/xjiang296/blockgraph/bg-query-go/bin:/Users/xjiang296/blockgraph/bg-signal-simulator/bin:/Users/xjiang296/blockgraph/bg-segment-server/bin
+#export GOPATH=/Users/xjiang296/work/go:/Users/xjiang296/blockgraph/bg-signal-go:/Users/xjiang296/blockgraph/bg-query-go:/Users/xjiang296/blockgraph/bg-signal-simulator:/Users/xjiang296/blockgraph/bg-segment-server
+#export GOPATHBIN=/Users/xjiang296/work/go/bin:/Users/xjiang296/blockgraph/bg-signal-go/bin:/Users/xjiang296/blockgraph/bg-query-go/bin:/Users/xjiang296/blockgraph/bg-signal-simulator/bin:/Users/xjiang296/blockgraph/bg-segment-server/bin
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -91,25 +91,26 @@ export GOPATHBIN=/Users/xjiang296/work/go/bin:/Users/xjiang296/blockgraph/bg-sig
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-####################these config only on this mac #####################
-alias gopa="$GOPATH"
-export adr=/Users/xjiang296/work/common/src/go/src/audience_data_right
-alias adr="$adr"
+#
+###################these config only on freewheel mac #####################
+# alias gopa="$GOPATH"
+# export adr=/Users/xjiang296/work/common/src/go/src/audience_data_right
+# alias adr="$adr"
 
-export bgraph=$HOME/blockgraph
-alias bgraph="$bgraph"
+# export bgraph=$HOME/blockgraph
+# alias bgraph="$bgraph"
 
-export k8s=/Users/xjiang296/work/go/src/k8s
-alias k8s="$k8s"
+# export k8s=/Users/xjiang296/work/go/src/k8s
+# alias k8s="$k8s"
 
-export gotutor=/Users/xjiang296/go/src/github.com/fatih/vim-go-tutorial
+# export gotutor=/Users/xjiang296/go/src/github.com/fatih/vim-go-tutorial
 
-export hyper=/Users/xjiang296/work/common/src/go/src/audience_data_right/docker-compose-files/hyperledger/1.0
-alias hyper="$hyper"
+# export hyper=/Users/xjiang296/work/common/src/go/src/audience_data_right/docker-compose-files/hyperledger/1.0
+# alias hyper="$hyper"
 
-export blockbench=/Users/xjiang296/work/blockbench
-alias blockbench="$blockbench"
-########################################################################
+# export blockbench=/Users/xjiang296/work/blockbench
+# alias blockbench="$blockbench"
+#######################################################################
 
 ## add GOPATH to PATH wich a precheck
 if [[ ! $PATH =~ "$GOPATHBIN" ]]; then
