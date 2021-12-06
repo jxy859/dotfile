@@ -199,7 +199,6 @@ export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 
 #postgres
 alias pcli="pgcli -h 127.0.0.1 -U postgres -d blockgraph_participant"
-export PATH="/usr/local/opt/go@1.14/bin:$PATH"
 ss(){
 	iid=$3
 	[[ "$iid" == "" ]] && iid="1"
@@ -211,3 +210,4 @@ ss(){
 toilet -f smmono9 -F metal Hello! 
 toilet -F border -F metal Xinyang -f mono9
 fortune | cowsay
+export PATH="/usr/local/opt/go@1.14/bin:$PATH"

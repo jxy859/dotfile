@@ -226,10 +226,10 @@ autocmd BufNewFile *.[ch],*.hpp,*.cpp,Makefile,*.mk,*.sh,*.go,*.js,*.java exec "
 
 func SetComment() " comment with /**/ //
 	call setline(1,"/*================================================================") 
-	call append(line("."),   "#   Copyright (C) ".strftime("%Y")." FreeWheel")
+	call append(line("."),   "#   Copyright (C) ".strftime("%Y")." BlockGraph")
 	call append(line(".")+1, "#   ") 
 	call append(line(".")+2, "#   Filename: ".expand("%:t")) 
-	call append(line(".")+3, "#   Author: xyjiang <Email:jxy859@gmail.com | Work-Email xyjiang@freewheel.com|xyjiang@blockgraph.co>")
+	call append(line(".")+3, "#   Author: xyjiang <Email:jxy859@gmail.com | Work-Email xyjiang@blockgraph.co>")
 	call append(line(".")+4, "#   Create: ".strftime("%Y-%m-%d")) 
 	call append(line(".")+5, "#   Update: ".strftime("%Y-%m-%d %H:%M:%S"))
 	call append(line(".")+6, "#   Desc: ") 
@@ -240,9 +240,9 @@ endfunc
 
 func SetComment_sh()
 	call append(line(".")+0, "#================================================================") 
-	call append(line(".")+1, "#   Copyright (C) ".strftime("%Y")." FreeWheel")
+	call append(line(".")+1, "#   Copyright (C) ".strftime("%Y")." BlockGraph")
 	call append(line(".")+2, "#   Filename: ".expand("%:t")) 
-	call append(line(".")+3, "#   Author: Xinyang Jiang <Email:jxy859@gmail.com | Work-Email xyjiang@freewheel.com|xyjiang@blockgraph.co>")
+	call append(line(".")+3, "#   Author: Xinyang Jiang <Email:jxy859@gmail.com | Work-Email xyjiang@blockgraph.co>")
 	call append(line(".")+4, "#   Create: ".strftime("%Y-%m-%d")) 
 	call append(line(".")+5, "#   Update: ".strftime("%Y-%m-%d %H:%M:%S"))
 	call append(line(".")+6, "#   Desc: ") 
@@ -307,6 +307,8 @@ endfunc
 autocmd FileWritePre,BufWritePre *.[ch],*.hpp,*.cpp,Makefile,*.mk,*.sh,*.go,*.js ks|call DataUpdate() |'s
 "SET Last Modified Time END
 
+""vim rest control
+let g:vrc_output_buffer_name = '__VRC_OUTPUT.<filetype>'
 """groovy
 
 if did_filetype() 
